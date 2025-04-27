@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-header: "Smooch Sans", "serif";
+  --font-body: "Kanit", "serif";
+
+  /* Colors */
+  /* Blue - Calm and professional */
+  --color-primary: #4F46E5;
+
+  /* Purple - Vibrant and engaging */
+  --color-secondary: #9333EA;
+
+  /* Green - Fresh and lively */
+  --color-accent: #22C55E;
+
+  /* Yellow - Attention-grabbing and energetic */
+  --color-highlight: #FACC15;
+
+}
