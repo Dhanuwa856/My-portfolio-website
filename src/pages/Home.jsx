@@ -7,6 +7,7 @@ import AboutSection from "../components/About/About";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import Logos from "../components/Logos/Logos";
 import SkillSection from "../components/SkillSection/SkillSection";
+import EducationSection from "../components/Education/Education";
 
 const Home = () => {
   // centralize darkMode + localStorage
@@ -28,7 +29,9 @@ const Home = () => {
       <TitleTag sub_title="about me" id="about" />
       <AboutSection darkMode={darkMode} />
       <TitleTag sub_title="My Skills" id="skills" />
-      <SkillSection />
+      <SkillSection darkMode={darkMode} />
+      <TitleTag sub_title="education" id="education" />
+      <EducationSection darkMode={darkMode} />
     </>
   );
 };
