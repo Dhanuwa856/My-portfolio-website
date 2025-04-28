@@ -19,3 +19,61 @@
   --color-highlight: #FACC15;
 
 }
+
+/* scrool bar */
+/* WebKit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Adjust the width of the scrollbar */
+  height: 10px;
+  /* Optional: Adjust the height for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #e5e7eb;
+  /* Neutral light gray background for the track */
+  border-radius: 10px;
+  /* Optional: Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4F46E5;
+  /* Vibrant purple color for the thumb */
+  border-radius: 10px;
+  /* Add rounded corners to the thumb */
+  border: 3px solid #e5e7eb;
+  /* Adds spacing and a cleaner look by matching track color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4F46E5;
+  /* Darker purple for hover state */
+}
+
+/* Firefox Scrollbar Customization */
+html {
+  scrollbar-width: thin;
+  /* Options: auto, thin */
+  scrollbar-color: #4F46E5 #e5e7eb;
+  /* thumb color | track color */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* Optional: Customize scrollable elements */
+.scrollable-div {
+  max-height: 400px;
+  /* Example for scrollable container */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  border: 1px solid #d1d5db;
+  /* Optional: Add a border */
+  padding: 16px;
+  /* Add some padding */
+  border-radius: 8px;
+  /* Rounded corners */
+}
