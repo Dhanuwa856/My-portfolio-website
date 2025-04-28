@@ -3,6 +3,10 @@ import NavigationBar from "../components/NavigationBar/NavigationBar";
 import Hero from "../components/Hero/Hero";
 import ToggleBtn from "../components/ToggleBtn/ToggleBtn";
 import TitleTag from "../components/TitleTag/TitleTag";
+import AboutSection from "../components/About/About";
+import ProgressBar from "../components/ProgressBar/ProgressBar";
+import Logos from "../components/Logos/Logos";
+import SkillSection from "../components/SkillSection/SkillSection";
 
 const Home = () => {
   // centralize darkMode + localStorage
@@ -22,6 +26,9 @@ const Home = () => {
       <Hero />
       <ToggleBtn darkMode={darkMode} setDarkMode={setDarkMode} />
       <TitleTag sub_title="about me" id="about" />
+      <AboutSection darkMode={darkMode} />
+      <TitleTag sub_title="My Skills" id="skills" />
+      <SkillSection />
     </>
   );
 };
