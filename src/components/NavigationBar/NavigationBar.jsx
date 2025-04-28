@@ -55,9 +55,9 @@ const NavigationBar = () => {
         {/* Logo */}
         <div className="flex justify-center lg:justify-start mb-4 lg:mb-0">
           <img
-            src="/logo.png"
+            src="/logo_new.jpg"
             alt=""
-            className="w-10 h-10 rounded-full shadow-lg cursor-pointer"
+            className="w-8 h-8 rounded-full shadow-lg cursor-pointer"
           />
         </div>
 
