@@ -4,6 +4,7 @@ import NavBarLink from "../NavBarLink/NavBarLink";
 import { FiCopy } from "react-icons/fi";
 import toast from "react-hot-toast";
 import Switch from "../MenuIcon/MenuIcon";
+import { Link } from "react-router-dom";
 
 const NavigationBar = ({ darkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,11 +79,13 @@ const NavigationBar = ({ darkMode }) => {
       {/* Links */}
       <div className={linkContainerClasses}>
         <div className="flex justify-center lg:justify-start mb-4 lg:mb-0">
-          <img
-            src="/logo_new.jpg"
-            alt="Logo"
-            className="w-8 h-8 rounded-full shadow-lg cursor-pointer"
-          />
+          <Link to="/">
+            <img
+              src="/logo_new.jpg"
+              alt="Logo"
+              className="w-8 h-8 rounded-full shadow-lg cursor-pointer"
+            />
+          </Link>
         </div>
         <NavBarLink link_name="home" link_url="#" darkMode={darkMode} />
         <NavBarLink link_name="about" link_url="#about" darkMode={darkMode} />
