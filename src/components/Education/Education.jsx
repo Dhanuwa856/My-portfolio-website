@@ -81,7 +81,7 @@ const EducationSection = ({ darkMode }) => {
   return (
     <StyledEducation ref={containerRef}>
       <div className="container">
-        {/* Timeline with icons */}
+        {/* Timeline */}
         <div className="timeline">
           {educationData.map((_, i) => (
             <div
@@ -105,9 +105,11 @@ const EducationSection = ({ darkMode }) => {
           {educationData.map((item, i) => (
             <div
               key={i}
-              className={`education-item bg-gray-100 hover:bg-secondary duration-700 group ${
+              className={`education-item group ${
                 i <= activeIndex ? "active" : ""
-              } ${darkMode ? "bg-gray-800" : "bg-white"}`}
+              } ${
+                darkMode ? "bg-gray-800" : "bg-white"
+              } hover:bg-secondary duration-500`}
               style={{ top: `${(i * 100) / (educationData.length - 1)}%` }}
             >
               <h3 className="font-header text-2xl sm:text-3xl font-semibold text-secondary/90 group-hover:text-white duration-700 mb-1">
@@ -181,8 +183,14 @@ const StyledEducation = styled.div`
   .container {
     position: relative;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0px auto 200px auto;
     height: 900px;
+  }
+  @media (max-width: 768px) {
+    .container {
+      height: 400px;
+      margin: 0px auto -200px auto;
+    }
   }
 
   .timeline {
@@ -268,16 +276,20 @@ const StyledEducation = styled.div`
       display: none;
     }
 
-    .education-items .education-item {
-      width: 100%;
-      position: static;
-      margin-bottom: 2rem;
-      transform: none !important;
+    .education-items {
+      .education-item {
+        width: 100%;
+        position: static;
+        margin-bottom: 2rem;
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
 
-      &:nth-child(even),
-      &:nth-child(odd) {
-        left: auto;
-        right: auto;
+        &:nth-child(even),
+        &:nth-child(odd) {
+          left: auto;
+          right: auto;
+        }
       }
     }
   }
