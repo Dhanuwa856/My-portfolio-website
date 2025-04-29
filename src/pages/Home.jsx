@@ -5,6 +5,7 @@ import AboutSection from "../components/About/About";
 import SkillSection from "../components/SkillSection/SkillSection";
 import EducationSection from "../components/Education/Education";
 import ProjectSlider from "../components/Projects/Projects";
+import ContactSection from "../components/ContactSection/ContactSection";
 
 const Home = ({ darkMode }) => {
   return (
@@ -18,6 +19,8 @@ const Home = ({ darkMode }) => {
       <EducationSection darkMode={darkMode} />
       <TitleTag sub_title="projects" id="projects" />
       <ProjectSlider darkMode={darkMode} />
+      <TitleTag sub_title="contact me" id="contact" />
+      <ContactSection darkMode={darkMode} />
     </>
   );
 };
