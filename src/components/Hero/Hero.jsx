@@ -57,7 +57,8 @@ const Hero = () => {
           {/* Hire Me Button */}
           <button
             onClick={() =>
-              (window.location.href = "mailto:your_email@example.com")
+              (window.location.href =
+                "https://www.upwork.com/freelancers/~01386d08f6baa0d69c?mp_source=share")
             }
           >
             <HeroBtn />
@@ -76,7 +77,7 @@ const Hero = () => {
         {/* Social Media Icons */}
         <div className="mt-6 flex justify-center space-x-6">
           <a
-            href="https://www.linkedin.com/in/your-profile"
+            href="https://www.linkedin.com/in/dhanushka-rathnayaka-9b5125321/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-secondary duration-700"

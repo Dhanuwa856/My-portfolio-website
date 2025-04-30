@@ -36,7 +36,7 @@ const Footer = ({ darkMode }) => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/YourGitHubUsername"
+                href="https://github.com/Dhanuwa856"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-indigo-400"
@@ -45,7 +45,7 @@ const Footer = ({ darkMode }) => {
                 <FaGithub size={20} />
               </a>
               <a
-                href="https://buymeacoffee.com/YourCoffeeLink"
+                href="https://buymeacoffee.com/dhanuwa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-yellow-400"
@@ -82,7 +82,7 @@ const Footer = ({ darkMode }) => {
               </li>
               <li>
                 <a
-                  href="https://www.upwork.com/freelancers/~YourUpworkProfile"
+                  href="https://www.upwork.com/freelancers/~01386d08f6baa0d69c?mp_source=share"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-indigo-400"

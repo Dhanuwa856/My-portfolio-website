@@ -10,7 +10,7 @@ const NavigationBar = ({ darkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("pdhanushka856@gmail.com");
+    navigator.clipboard.writeText("infoname259@gmail.com");
     toast.success("Email copied to clipboard!");
   };
 
@@ -110,7 +110,7 @@ const NavigationBar = ({ darkMode }) => {
       {/* Email Copy for Desktop */}
       <div className={copyBtnClasses} onClick={handleCopy}>
         <FiCopy className={darkMode ? "text-gray-300" : "text-gray-600"} />
-        <div>pdhanushka856@gmail.com</div>
+        <div>infoname259@gmail.com</div>
       </div>
     </div>
   );

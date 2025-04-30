@@ -51,7 +51,7 @@ const ContactSection = ({ darkMode }) => {
         >
           <FaEnvelope size={40} className="mx-auto mb-4 text-primary" />
           <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-            your.email@example.com
+            infoname259@gmail.com
           </p>
         </div>
         <div
@@ -61,7 +61,7 @@ const ContactSection = ({ darkMode }) => {
         >
           <FaWhatsapp size={40} className="mx-auto mb-4 text-accent" />
           <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-            +94 77 123 4567
+            soon to be available
           </p>
         </div>
         <div
