@@ -184,7 +184,7 @@ const StyledEducation = styled.div`
     position: relative;
     max-width: 1200px;
     margin: 0px auto 200px auto;
-    height: 900px;
+    height: 800px;
   }
   @media (max-width: 768px) {
     .container {
