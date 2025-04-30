@@ -6,8 +6,11 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import ProjectPage from "./pages/ProjectPage";
 import ToggleBtn from "./components/ToggleBtn/ToggleBtn";
 import Footer from "./components/Footer/Footer";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 const App = () => {
+  const [showLoading, setShowLoading] = useState(true);
+
   // centralize darkMode + localStorage
   const [darkMode, setDarkMode] = useState(() => {
     const stored = localStorage.getItem("darkMode");
@@ -22,6 +25,8 @@ const App = () => {
 
   return (
     <>
+      {showLoading && <LoadingScreen />}
+
       <Toaster position="bottom-center" reverseOrder={false} />
       <NavigationBar darkMode={darkMode} />
       <ToggleBtn darkMode={darkMode} setDarkMode={setDarkMode} />

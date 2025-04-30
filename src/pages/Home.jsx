@@ -6,6 +6,7 @@ import SkillSection from "../components/SkillSection/SkillSection";
 import EducationSection from "../components/Education/Education";
 import ProjectSlider from "../components/Projects/Projects";
 import ContactSection from "../components/ContactSection/ContactSection";
+import Loader from "../components/Loader/Loader";
 
 const Home = ({ darkMode }) => {
   return (
