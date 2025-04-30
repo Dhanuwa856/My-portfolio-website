@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
+import emailjs from "emailjs-com";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactSection = ({ darkMode }) => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,7 @@ const ContactSection = ({ darkMode }) => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -17,22 +20,37 @@ const ContactSection = ({ darkMode }) => {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.message) newErrors.message = "Message is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-    } else {
-      setErrors({});
-      console.log("Submitted", formData);
-      alert("Message Sent Successfully!");
+      return;
+    }
+
+    setErrors({});
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_PUBLIC_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_PUBLIC_EMAILJS_USER_ID
+      );
+      toast.success("Message Sent Successfully!");
       setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Email send error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -172,9 +190,10 @@ const ContactSection = ({ darkMode }) => {
 
         <button
           type="submit"
-          className="w-full bg-primary hover:bg-primary/60 cursor-pointer transition text-white font-semibold py-3 px-6 rounded-md"
+          disabled={isLoading}
+          className="w-full bg-primary hover:bg-primary/60 cursor-pointer transition text-white font-semibold py-3 px-6 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Send Message
+          {isLoading ? "Sending..." : "Send Message"}
         </button>
       </form>
     </section>
