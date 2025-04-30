@@ -1,6 +1,7 @@
 // src/components/AboutSection/AboutSection.js
 import React from "react";
 import { motion } from "motion/react";
+import User_Image from "../../assets/user.png";
 
 const AboutSection = ({ darkMode }) => {
   const transition = {
@@ -86,7 +87,7 @@ const AboutSection = ({ darkMode }) => {
                 }`}
               >
                 <img
-                  src="/user.png"
+                  src={User_Image}
                   alt="User"
                   className="absolute -bottom-12 sm:-bottom-14 md:-bottom-16 w-[85%] sm:w-[90%] object-cover transform -translate-y-1/6 rounded-b-full"
                 />
