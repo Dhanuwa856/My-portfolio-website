@@ -1,30 +1,47 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
 import TitleTag from "../components/TitleTag/TitleTag";
 
 const ProjectPage = ({ darkMode }) => {
-  // Placeholder data; replace with props or fetch logic
-  const project = {
-    title: "AI Chatbot",
-    screenshots: [
-      "/images/ai-chatbot-1.png",
-      "/images/ai-chatbot-2.png",
-      "/images/ai-chatbot-3.png",
-    ],
-    description: `Built a conversational AI chatbot using NLP techniques and deep learning. Features include intent detection, context management, and dynamic response generation. Integrated with a web interface for real-time user queries.`,
-  };
+  const location = useLocation();
+  const navigate = useNavigate();
+  const project = location.state?.project;
+
+  // Redirect if no project passed
+  useEffect(() => {
+    if (!project) navigate("/");
+  }, [project, navigate]);
+
+  if (!project) return null;
 
   return (
     <PageContainer>
-      {/* Header with background image and project title */}
+      {/* Header with background image */}
       <Header>
-        <HeaderOverlay></HeaderOverlay>
+        <HeaderOverlay />
       </Header>
-      <TitleTag sub_title={project.title} />
+
+      {/* Project Title */}
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-center text-indigo-600 font-header mt-5">
+        {project.title}
+      </h1>
       {/* Main content */}
       <Content darkMode={darkMode}>
+        {/* Tags Section */}
+        {project.tags?.length > 0 && (
+          <Section>
+            <SectionTitle darkMode={darkMode}>Tags</SectionTitle>
+            <TagList>
+              {project.tags.map((tag, idx) => (
+                <Tag key={idx}>{tag}</Tag>
+              ))}
+            </TagList>
+          </Section>
+        )}
+
         {/* Screenshots Section */}
         <Section>
           <SectionTitle darkMode={darkMode}>Screenshots</SectionTitle>
@@ -52,6 +69,7 @@ const ProjectPage = ({ darkMode }) => {
 export default ProjectPage;
 
 // Styled Components
+
 const PageContainer = styled.div`
   width: 100%;
 `;
@@ -72,19 +90,6 @@ const HeaderOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const HeaderTitle = styled.h1`
-  color: #fff;
-  font-size: 3rem;
-  text-align: center;
-  padding: 0 1rem;
-  @media (max-width: 640px) {
-    font-size: 2rem;
-  }
 `;
 
 const Content = styled.div`
@@ -134,4 +139,19 @@ const Description = styled.p`
   font-size: 1rem;
   line-height: 1.6;
   color: ${({ darkMode }) => (darkMode ? "#ccc" : "#555")};
+`;
+
+const TagList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const Tag = styled.span`
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.875rem;
+  border-radius: 9999px;
+  white-space: nowrap;
 `;

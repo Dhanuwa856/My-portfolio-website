@@ -6,43 +6,88 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+import Img_01 from "../../assets/projects/project01.png";
+import Img_02 from "../../assets/projects/project02.png";
+import Img_03 from "../../assets/projects/project03.png";
+import Img_04 from "../../assets/projects/project04.png";
+import Img_05 from "../../assets/projects/project05.png";
+
+import P01S01 from "../../assets/projects/p01s01.png";
+import P01S02 from "../../assets/projects/p01s02.png";
+import P01S03 from "../../assets/projects/p01s03.png";
+import P01S04 from "../../assets/projects/p01s04.png";
 
 const ProjectSlider = ({ darkMode }) => {
+  const navigate = useNavigate();
+
+  const handleViewMore = (project) => {
+    const fullProject = {
+      ...project,
+      screenshots: project.screenshots || project.ss_images || [],
+    };
+    navigate("/project", { state: { project: fullProject } });
+  };
+
   const projects = [
     {
-      title: "AI Chatbot",
-      image: "https://placehold.co/100",
-      demoUrl: "https://demo.ai-chatbot.com",
-      githubUrl: "https://github.com/username/ai-chatbot",
-      slug: "ai-chatbot",
+      id: 1,
+      title: "Hotel Management System",
+      image: Img_01,
+      demoUrl: "https://hotel-booking-app.vercel.app/",
+      githubUrl: "https://github.com/Dhanuwa856/hotel-booking-frontend.git",
+      description:
+        "A comprehensive Hotel Management System built with the MERN stack (MongoDB, Express, React, Node.js). This application enables users to browse available hotel rooms, view detailed room information, and make bookings with real-time availability checks. Admins can log in to manage room inventory, view customer bookings, and update room details. The frontend is styled using TailwindCSS, ensuring a responsive and modern design. It also includes features like search filters, user authentication, and booking confirmation emails, offering a complete hotel booking experience.",
+
+      tags: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+      screenshots: [P01S01, P01S02, P01S03, P01S04],
     },
     {
-      title: "Personal Portfolio",
-      image: "https://placehold.co/200",
-      demoUrl: "https://yourportfolio.com",
-      githubUrl: "https://github.com/username/portfolio",
-      slug: "personal-portfolio",
+      id: 2,
+      title: "Makaan Frontend Development",
+      image: Img_02,
+      demoUrl: "https://dhanuwa856.github.io/React-Dummy-Website-01/",
+      githubUrl: "https://github.com/Dhanuwa856/React-Dummy-Website-01.git",
+      description:
+        "Responsive real estate landing page inspired by makaan.com.",
+      tags: ["React", "CSS3", "Responsive Design"],
+      screenshots: ["/screenshots/makaan-1.png", "/screenshots/makaan-2.png"],
     },
     {
-      title: "E-commerce App",
-      image: "https://placehold.co/300",
-      demoUrl: "https://demo.ecommerce.com",
-      githubUrl: "https://github.com/username/ecommerce-app",
-      slug: "ecommerce-app",
+      id: 3,
+      title: "Education Site Frontend",
+      image: Img_03,
+      demoUrl: "https://dhanuwa856.github.io/Education-Site-/",
+      githubUrl: "https://github.com/Dhanuwa856/Education-Site-.git",
+      description:
+        "Frontend for an educational platform with courses and instructors.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      screenshots: [
+        "/screenshots/education-1.png",
+        "/screenshots/education-2.png",
+      ],
     },
     {
-      title: "Weather App",
-      image: "https://placehold.co/400",
-      demoUrl: "https://demo.weatherapp.com",
-      githubUrl: "https://github.com/username/weather-app",
-      slug: "weather-app",
+      id: 4,
+      title: "Movie Search App",
+      image: Img_04,
+      demoUrl: "https://dhanuwa856.github.io/movie-details-app/",
+      githubUrl: "https://github.com/Dhanuwa856/movie-details-app.git",
+      description: "Search movies using the OMDB API and view detailed info.",
+      tags: ["React", "axios", "omdbapi", "JavaScript"],
+      screenshots: ["/screenshots/movie-1.png", "/screenshots/movie-2.png"],
     },
     {
-      title: "Weather App",
-      image: "https://placehold.co/500",
-      demoUrl: "https://demo.weatherapp.com",
-      githubUrl: "https://github.com/username/weather-app",
-      slug: "weather-app",
+      id: 5,
+      title: "Zillow.com Scraper",
+      image: Img_05,
+      demoUrl: "/",
+      githubUrl: "https://github.com/dhanuwa856/real_estate",
+      description:
+        "Python scraper that exports 1000 properties from Zillow (Downtown LA).",
+      tags: ["Python", "BeautifulSoup", "requests", "pandas"],
+      screenshots: ["/screenshots/zillow-1.png", "/screenshots/zillow-2.png"],
     },
   ];
 
@@ -75,8 +120,8 @@ const ProjectSlider = ({ darkMode }) => {
   return (
     <SliderWrapper darkMode={darkMode}>
       <Slider {...settings}>
-        {projects.map((project, idx) => (
-          <Card key={idx}>
+        {projects.map((project) => (
+          <Card key={project.id}>
             <ImageContainer>
               <img src={project.image} alt={project.title} />
               <Overlay>
@@ -86,7 +131,9 @@ const ProjectSlider = ({ darkMode }) => {
                 <IconButton href={project.githubUrl} target="_blank">
                   <FaGithub /> GitHub
                 </IconButton>
-                <DetailButton>View More</DetailButton>
+                <DetailButton onClick={() => handleViewMore(project)}>
+                  View More
+                </DetailButton>
               </Overlay>
             </ImageContainer>
           </Card>
@@ -99,27 +146,26 @@ const ProjectSlider = ({ darkMode }) => {
 export default ProjectSlider;
 
 // Styled Components
+
 const SliderWrapper = styled.div`
   padding: 2rem;
   background-color: ${({ darkMode }) => (darkMode ? "#111" : "#fff")};
 
-  .slick-dots li button:before {
-    color: ${({ darkMode }) => (darkMode ? "#fff" : "#000")};
-  }
-
   .slick-prev,
   .slick-next {
+    z-index: 1;
     width: 30px;
     height: 30px;
-    z-index: 1;
     &::before {
       font-size: 25px;
       color: ${({ darkMode }) => (darkMode ? "#aaa" : "#333")};
     }
   }
+
   .slick-prev {
     left: -30px;
   }
+
   .slick-next {
     right: -30px;
   }
@@ -135,17 +181,15 @@ const Card = styled.div`
 
   @media (max-width: 640px) {
     width: 100%;
-    max-width: none;
   }
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  width: 100%;
 
   img {
     width: 100%;
-    height: auto;
+    height: 300px;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -179,11 +223,12 @@ const Overlay = styled.div`
     border-radius: 4px;
     background: var(--color-primary);
     color: #fff;
-    text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
     transition: background 0.3s ease;
-    font-family: var(--font-body);
 
     &:hover {
       background: var(--color-secondary);
@@ -191,11 +236,6 @@ const Overlay = styled.div`
   }
 `;
 
-const IconButton = styled.a`
-  font-size: 0.875rem;
-`;
+const IconButton = styled.a``;
 
-const DetailButton = styled.button`
-  font-size: 0.875rem;
-  cursor: pointer;
-`;
+const DetailButton = styled.button``;

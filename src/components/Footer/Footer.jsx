@@ -61,7 +61,7 @@ const Footer = ({ darkMode }) => {
             <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#home" className="hover:text-indigo-400">
+                <a href="#" className="hover:text-indigo-400">
                   Home
                 </a>
               </li>

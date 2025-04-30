@@ -7,18 +7,21 @@ import ProjectPage from "./pages/ProjectPage";
 import ToggleBtn from "./components/ToggleBtn/ToggleBtn";
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const App = () => {
   const [showLoading, setShowLoading] = useState(true);
 
   // centralize darkMode + localStorage
   const [darkMode, setDarkMode] = useState(() => {
-    const stored = localStorage.getItem("darkMode");
-    return stored ? JSON.parse(stored) : false;
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("darkMode");
+      return stored ? JSON.parse(stored) : true; // ✅ Default to dark
+    }
+    return true; // fallback for SSR
   });
 
   useEffect(() => {
-    // body background
     document.body.style.backgroundColor = darkMode ? "#111" : "#fff";
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
@@ -26,7 +29,7 @@ const App = () => {
   return (
     <>
       {showLoading && <LoadingScreen />}
-
+      <ScrollToTop />
       <Toaster position="bottom-center" reverseOrder={false} />
       <NavigationBar darkMode={darkMode} />
       <ToggleBtn darkMode={darkMode} setDarkMode={setDarkMode} />
