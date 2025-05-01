@@ -1,9 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-
+import { motion } from "framer-motion";
 const TitleTag = (props) => {
   return (
-    <StyledTitle data-text="<about me/>">
+    <StyledTitle
+      as={motion.h1}
+      id={props.id}
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{
+        type: "spring",
+        stiffness: 500,
+        damping: 20,
+        duration: 0.1,
+      }}
+      data-text={`<${props.sub_title}/>`}
+    >
       <span className="actual-text">&lt;{props.sub_title}/&gt;</span>
       <span aria-hidden="true" className="hover-text" id={props.id}>
         &lt;{props.sub_title}/&gt;

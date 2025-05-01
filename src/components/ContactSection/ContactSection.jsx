@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import toast, { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const ContactSection = ({ darkMode }) => {
   const [formData, setFormData] = useState({
@@ -54,6 +55,27 @@ const ContactSection = ({ darkMode }) => {
     }
   };
 
+  const contactCards = [
+    {
+      icon: <FaEnvelope size={40} />,
+      colorClass: "text-primary",
+      text: "infoname259@gmail.com",
+      initialX: -100,
+    },
+    {
+      icon: <FaWhatsapp size={40} />,
+      colorClass: "text-accent",
+      text: "soon to be available",
+      initialX: 100,
+    },
+    {
+      icon: <FaMapMarkerAlt size={40} className="text-red-500" />,
+      colorClass: "text-red-500",
+      text: "Colombo, Sri Lanka",
+      initialX: 0,
+    },
+  ];
+
   return (
     <section
       className={`w-full py-12 px-4  ${
@@ -62,44 +84,47 @@ const ContactSection = ({ darkMode }) => {
     >
       {/* Cards */}
       <div className="grid gap-6 md:grid-cols-3 mb-10 max-w-4xl mx-auto">
-        <div
-          className={`${
-            darkMode ? "bg-gray-800" : "bg-white"
-          } rounded-lg p-6 shadow-md hover:shadow-lg transition hover:scale-105 text-center`}
-        >
-          <FaEnvelope size={40} className="mx-auto mb-4 text-primary" />
-          <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-            infoname259@gmail.com
-          </p>
-        </div>
-        <div
-          className={`${
-            darkMode ? "bg-gray-800" : "bg-white"
-          } rounded-lg p-6 shadow-md hover:shadow-lg transition hover:scale-105 text-center`}
-        >
-          <FaWhatsapp size={40} className="mx-auto mb-4 text-accent" />
-          <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-            soon to be available
-          </p>
-        </div>
-        <div
-          className={`${
-            darkMode ? "bg-gray-800" : "bg-white"
-          } rounded-lg p-6 shadow-md hover:shadow-lg transition hover:scale-105 text-center`}
-        >
-          <FaMapMarkerAlt size={40} className="mx-auto mb-4 text-red-500" />
-          <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-            Colombo, Sri Lanka
-          </p>
-        </div>
+        {contactCards.map((card, i) => (
+          <motion.div
+            key={i}
+            className={`${
+              darkMode ? "bg-gray-800" : "bg-white"
+            } rounded-lg p-6 shadow-md hover:shadow-lg transition-transform hover:scale-105 text-center flex flex-col items-center gap-2`}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+              duration: 0.5,
+              delay: i * 0.2,
+            }}
+          >
+            <div className={`mx-auto  ${card.colorClass}`}>{card.icon}</div>
+            <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+              {card.text}
+            </p>
+          </motion.div>
+        ))}
       </div>
 
       {/* Contact Form */}
-      <form
+      <motion.form
         onSubmit={handleSubmit}
         className={`max-w-4xl mx-auto ${
           darkMode ? "bg-gray-800" : "bg-white"
         } p-8 rounded-lg shadow-md`}
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 30,
+          duration: 0.5,
+          delay: 0.2,
+        }}
       >
         <div className="mb-6">
           <label
@@ -195,7 +220,7 @@ const ContactSection = ({ darkMode }) => {
         >
           {isLoading ? "Sending..." : "Send Message"}
         </button>
-      </form>
+      </motion.form>
     </section>
   );
 };

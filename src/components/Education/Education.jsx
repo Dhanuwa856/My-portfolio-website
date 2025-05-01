@@ -186,6 +186,12 @@ const StyledEducation = styled.div`
     margin: 0px auto 200px auto;
     height: 800px;
   }
+  @media (max-width: 1200px) {
+    .container {
+      height: 600px;
+    }
+  }
+
   @media (max-width: 768px) {
     .container {
       height: 400px;

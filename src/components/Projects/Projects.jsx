@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import Img_01 from "../../assets/projects/project01.png";
 import Img_02 from "../../assets/projects/project02.png";
@@ -121,7 +122,19 @@ const ProjectSlider = ({ darkMode }) => {
     <SliderWrapper darkMode={darkMode}>
       <Slider {...settings}>
         {projects.map((project) => (
-          <Card key={project.id}>
+          <Card
+            key={project.id}
+            as={motion.div}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 20,
+              duration: 0.1,
+            }}
+          >
             <ImageContainer>
               <img src={project.image} alt={project.title} />
               <Overlay>

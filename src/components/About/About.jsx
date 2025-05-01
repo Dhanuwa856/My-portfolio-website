@@ -87,10 +87,14 @@ const AboutSection = ({ darkMode }) => {
                   darkMode ? "bg-gray-800" : "bg-white"
                 }`}
               >
-                <img
+                <motion.img
                   src={darkMode ? User_Image : User_Image_bw}
                   alt="User"
                   className="absolute -bottom-12 sm:-bottom-14 md:-bottom-16 w-[85%] sm:w-[90%] object-cover transform -translate-y-1/6 rounded-b-full"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={transition}
+                  viewport={{ once: true, duration: 0.5 }}
                 />
               </div>
             </div>

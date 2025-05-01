@@ -25,7 +25,7 @@ const ProjectPage = ({ darkMode }) => {
       </Header>
 
       {/* Project Title */}
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-center text-indigo-600 font-header mt-5">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-center text-indigo-600 font-header mt-5 hover:text-accent w-fit mx-auto duration-1000">
         {project.title}
       </h1>
       {/* Main content */}
