@@ -1,8 +1,10 @@
 # Portfolio Website
 
-> Live Demo: [https://dhanushkarathnayakaportfolio.vercel.app/](https://dhanushkarathnayakaportfolio.vercel.app/)
-> GitHub Repo: [My Portfolio Website](https://github.com/Dhanuwa856/My-portfolio-website.git)
-> ☕ Tip Me: [buymeacoffee.com/dhanuwa](https://buymeacoffee.com/dhanuwa)
+## 📌 Quick Links
+
+- 🚀 **Live Demo:** [Open the portfolio](https://dhanushkarathnayakaportfolio.vercel.app/)
+- 💻 **GitHub Repo:** [My Portfolio Website](https://github.com/Dhanuwa856/My-portfolio-website.git)
+- ☕ **Tip Me:** [Buy me a coffee](https://buymeacoffee.com/dhanuwa)
 
 ---
 
