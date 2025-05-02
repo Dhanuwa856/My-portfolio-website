@@ -36,7 +36,7 @@ const ProjectSlider = ({ darkMode }) => {
       id: 1,
       title: "Hotel Management System",
       image: Img_01,
-      demoUrl: "https://hotel-booking-app.vercel.app/",
+      demoUrl: "https://hotel-booking-app-ebon-ten.vercel.app/",
       githubUrl: "https://github.com/Dhanuwa856/hotel-booking-frontend.git",
       description:
         "A comprehensive Hotel Management System built with the MERN stack (MongoDB, Express, React, Node.js). This application enables users to browse available hotel rooms, view detailed room information, and make bookings with real-time availability checks. Admins can log in to manage room inventory, view customer bookings, and update room details. The frontend is styled using TailwindCSS, ensuring a responsive and modern design. It also includes features like search filters, user authentication, and booking confirmation emails, offering a complete hotel booking experience.",
