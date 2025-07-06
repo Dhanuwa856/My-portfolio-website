@@ -1,8 +1,8 @@
 // src/components/AboutSection/AboutSection.js
 import React from "react";
 import { motion } from "motion/react";
-import User_Image from "../../assets/user.png";
-import User_Image_bw from "../../assets/user_b&w.png";
+import User_Image from "../../assets/user002.png";
+import User_Image_bw from "../../assets/user002_b&w.png";
 
 const AboutSection = ({ darkMode }) => {
   const transition = {
@@ -90,7 +90,7 @@ const AboutSection = ({ darkMode }) => {
                 <motion.img
                   src={darkMode ? User_Image : User_Image_bw}
                   alt="User"
-                  className="absolute -bottom-12 sm:-bottom-14 md:-bottom-16 w-[85%] sm:w-[90%] object-cover transform -translate-y-1/6 rounded-b-full"
+                  className="absolute -bottom-10 sm:-bottom-12 md:-bottom-13 w-[100%] object-cover transform -translate-y-1/6 rounded-b-full"
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={transition}

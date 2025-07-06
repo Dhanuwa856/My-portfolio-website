@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import toast from "react-hot-toast";
 import HeroBtn from "../HeroBtn/HeroBtn";
-import Pdf from "../../assets/DhanushkaRathnayaka_CV.pdf";
+import Pdf from "../../assets/Dhanushka_Rathnayaka_CV.pdf";
 
 const Hero = () => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -28,7 +28,7 @@ const Hero = () => {
   const handleCVDownload = () => {
     const link = document.createElement("a");
     link.href = Pdf; // Update this path to your CV file
-    link.download = "DhanushkaRathnayaka_CV.pdf";
+    link.download = "Dhanushka_Rathnayaka_CV.pdf";
     link.click();
     toast.success("CV Downloaded Successfully!");
   };

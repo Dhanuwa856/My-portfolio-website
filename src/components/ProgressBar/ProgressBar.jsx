@@ -13,7 +13,7 @@ export default function ProgressBar({ darkMode }) {
     { name: "NodeJS", color: "bg-[#75a963]", value: 70 },
     { name: "MongoDB", color: "bg-[#086e50]", value: 60 },
     { name: "ExpressJS", color: "bg-[#383838]", value: 75 },
-    { name: "Python", color: "bg-highlight", value: 35 },
+    { name: "Python", color: "bg-highlight", value: 85 },
     { name: "PHP", color: "bg-[#7b7fb5]", value: 40 },
   ];
 
