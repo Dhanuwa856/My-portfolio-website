@@ -7,7 +7,7 @@ import EducationSection from "../components/Education/Education";
 import ProjectSlider from "../components/Projects/Projects";
 import ContactSection from "../components/ContactSection/ContactSection";
 import Loader from "../components/Loader/Loader";
-import CertificateSection from "../components/certificate/certificate";
+import CertificateSection from "../components/certificate/Certificate";
 import UpworkCTASection from "../components/UpworkCTASection/UpworkCTASection";
 import FAQSection from "../components/FAQ/Faq";
 
