@@ -101,6 +101,11 @@ const NavigationBar = ({ darkMode }) => {
           darkMode={darkMode}
         />
         <NavBarLink
+          link_name="Certificates"
+          link_url="#certificates"
+          darkMode={darkMode}
+        />
+        <NavBarLink
           link_name="contact"
           link_url="#contact"
           darkMode={darkMode}

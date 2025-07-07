@@ -99,7 +99,7 @@ const Footer = ({ darkMode }) => {
             <ul className="flex space-x-4">
               <li>
                 <a
-                  href="https://facebook.com"
+                  href="https://web.facebook.com/profile.php?id=61577681014893"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-indigo-400"
@@ -119,7 +119,7 @@ const Footer = ({ darkMode }) => {
               </li>
               <li>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/dhanushka-rathnayaka-9b5125321/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-indigo-400"

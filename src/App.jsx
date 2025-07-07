@@ -8,6 +8,7 @@ import ToggleBtn from "./components/ToggleBtn/ToggleBtn";
 import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
   const [showLoading, setShowLoading] = useState(true);
@@ -36,6 +37,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home darkMode={darkMode} />} />
         <Route path="/project" element={<ProjectPage darkMode={darkMode} />} />
+        <Route path="*" element={<NotFoundPage darkMode={darkMode} />} />
       </Routes>
       <Footer darkMode={darkMode} />
     </>
